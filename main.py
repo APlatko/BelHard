@@ -24,11 +24,11 @@
 # phrase = f"London is the capital with {c} mil. citizens."
 # print(type(phrase), phrase)
 # print("10" in phrase)
-import decimal
+
 
 from num2words import num2words
 from decimal import *
-print(getcontext())
+
 
 print("You can make a calculation. Enter numbers and arithmetical operator (+-*/) below:")
 print("To exit print \"stop\".\n")
@@ -78,14 +78,13 @@ while True:
         print("\nCalculating....")
     except ZeroDivisionError:
         print("\nCalculating....")
-        print(f"---You cannot divide by 0---")
+        print("---You cannot divide by 0---")
 
     cycles += 1
 
     result_in_words = num2words(result)
     result_in_words_2 = num2words((result), lang='ru')
 
-    # print("\nCalculating....")
     print(f"The result is: {result} ({result_in_words.capitalize()})/({result_in_words_2.capitalize()})")
     print(f"Cycles {cycles}\n")
 
