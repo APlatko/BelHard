@@ -24,27 +24,68 @@
 # phrase = f"London is the capital with {c} mil. citizens."
 # print(type(phrase), phrase)
 # print("10" in phrase)
+import decimal
 
 from num2words import num2words
-from decimal import Decimal
+from decimal import *
+print(getcontext())
 
-print("You can make a calculation. Enter numbers and arithmetical operator (+-*/) below: \n")
+print("You can make a calculation. Enter numbers and arithmetical operator (+-*/) below:")
+print("To exit print \"stop\".\n")
 
-number_1 = Decimal(input("Enter the first number: "))
-operator = input("Enter the operator: ")
-number_2 = Decimal(input("Enter the second number: "))
+cycles = 0
+result = 0
+number_1 = ""
+operator = ""
+number_2 = ""
+operators = ('+', '-', '*', '/')
+while True:
+    try:
+        number_1 = input("Enter the first number: ")
+        if number_1.lower() == "stop":
+            break
+        number_1 = Decimal(number_1)
+    except Exception:
+        while not number_1.isdigit():
+            number_1 = input("Enter the first DIGIT: ")
+        number_1 = Decimal(number_1)
 
-if operator == "+":
-    result = number_1 + number_2
-elif operator == "-":
-    result = number_1 - number_2
-elif operator == "*":
-    result = number_1 * number_2
-elif operator == "/":
-    result = number_1 / number_2
+    operator = input("Enter the operator: ")
+    if operator.lower() == "stop":
+        break
+    while operator not in operators:
+        operator = input("Enter the operator form '+', '-', '*', '/': ")
 
-result_in_words = num2words(result)
-result_in_words_2 = num2words(result, lang='ru')
+    try:
+        number_2 = input("Enter the second number: ")
+        if number_2.lower() == "stop":
+            break
+        number_2 = Decimal(number_2)
+    except Exception:
+        while not number_2.isdigit():
+            number_2 = input("Enter the second DIGIT: ")
+        number_2 = Decimal(number_2)
 
-print("\nCalculating....")
-print(f"The result is: {result} ({result_in_words.capitalize()})/({result_in_words_2.capitalize()})")
+    try:
+        if operator == "+":
+            result = number_1 + number_2
+        elif operator == "-":
+            result = number_1 - number_2
+        elif operator == "*":
+            result = number_1 * number_2
+        elif operator == "/":
+            result = number_1 / number_2
+        print("\nCalculating....")
+    except ZeroDivisionError:
+        print("\nCalculating....")
+        print(f"---You cannot divide by 0---")
+
+    cycles += 1
+
+    result_in_words = num2words(result)
+    result_in_words_2 = num2words((result), lang='ru')
+
+    # print("\nCalculating....")
+    print(f"The result is: {result} ({result_in_words.capitalize()})/({result_in_words_2.capitalize()})")
+    print(f"Cycles {cycles}\n")
+
