@@ -54,7 +54,7 @@ while True:
     if operator.lower() == "stop":
         break
     while operator not in operators:
-        operator = input("Enter the operator form '+', '-', '*', '/': ")
+        operator = input("Enter the operator from '+', '-', '*', '/': ")
 
     try:
         number_2 = input("Enter the second number: ")
