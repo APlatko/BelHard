@@ -14,7 +14,7 @@ class Cat(Animal):
         return f"{self.name} - a cat. It says MEOW."
 
 
-class Dof(Animal):
+class Dog(Animal):
 
     def says(self):
         return f"{self.name} - a dog. It says WOOF."
@@ -27,9 +27,8 @@ class Cow(Animal):
 
 
 cat_1 = Cat("Sindy")
-dog_1 = Dof("Sparky")
+dog_1 = Dog("Sparky")
 cow_1 = Cow("Dosya")
-a = Animal("s")
 
 print(cat_1.says())
 print(dog_1.says())
