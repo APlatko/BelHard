@@ -1,47 +1,51 @@
-class Animal:
-    name: str
-
-    def __init__(self, name):
-        self.name = name
-
-    def says(self):
-        return self
-
-
-class Cat(Animal):
-
-    def says(self):
-        return f"{self.name} - a cat. It says MEOW."
-
-
-class Dog(Animal):
-
-    def says(self):
-        return f"{self.name} - a dog. It says WOOF."
-
-
-class Cow(Animal):
-
-    def says(self):
-        return f"{self.name} - a cow. It says MUU."
-
-
-cat_1 = Cat("Sindy")
-dog_1 = Dog("Sparky")
-cow_1 = Cow("Dosya")
-
-print(cat_1.says())
-print(dog_1.says())
-print(cow_1.says())
+# class Animal:
+#     name: str
+#
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def says(self):
+#         return self
+#
+#
+# class Cat(Animal):
+#
+#     def says(self):
+#         return f"{self.name} - a cat. It says MEOW."
+#
+#
+# class Dog(Animal):
+#
+#     def says(self):
+#         return f"{self.name} - a dog. It says WOOF."
+#
+#
+# class Cow(Animal):
+#
+#     def says(self):
+#         return f"{self.name} - a cow. It says MUU."
+#
+#
+# cat_1 = Cat("Sindy")
+# dog_1 = Dog("Sparky")
+# cow_1 = Cow("Dosya")
+#
+# print(cat_1.says())
+# print(dog_1.says())
+# print(cow_1.says())
 
 
 # _______________________________________
+from abc import ABC, abstractmethod
 
-class Shape:
 
+class Shape(ABC):
+
+    @abstractmethod
     def get_perimeter(self):
         return self
 
+    @abstractmethod
     def get_square(self):
         return self
 
