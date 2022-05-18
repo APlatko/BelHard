@@ -1,16 +1,40 @@
-# This is a sample Python script.
+class Car:
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def __init__(self, brand, model, issue_year, speed=0):
+        self.__brand = brand
+        self.__model = model
+        self.__issue_year = issue_year
+        self.__speed = speed
+
+    def speed_increase(self):
+        self.__speed += 5
+        return self.__speed
+
+    def speed_decrease(self):
+        self.__speed -= 5
+        return self.__speed
+
+    def stop(self):
+        self.__speed = 0
+        return self.__speed
+
+    def speed_actual(self):
+        print(self.__speed)
+
+    def reversal(self):
+        self.__speed = -self.__speed
+        return self.__speed
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+mercedes = Car(1, 1, 1, 20)
+mercedes.reversal()
+mercedes.speed_increase()
+mercedes.speed_actual()
+mercedes.speed_increase()
+mercedes.reversal()
+mercedes.speed_actual()
+print(mercedes.speed_actual())
+mercedes.speed_increase()
+print(mercedes._Car__speed)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
